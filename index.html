@@ -1,11 +1,1025 @@
 <html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEIAS - Colégio Estadual do Campo Irmã Ambrósia Sabatovich</title>
+  <style>
+    /* ==========================================================================
+       1. VARIÁVEIS E ESTILOS GERAIS
+       ========================================================================== */
+    :root {
+      --primary-color: #0d47a1;
+      --secondary-color: #1565c0;
+      --accent-color: #f57c00;
+      --bg-color: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-color: #212529;
+      --text-muted: #6c757d;
+      --border-color: #e0e0e0;
+      --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-scale: 1rem;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+      --text-color: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --border-color: #333333;
+    }
+
+    body.high-contrast {
+      --primary-color: #ffff00;
+      --secondary-color: #ffff00;
+      --bg-color: #000000;
+      --card-bg: #000000;
+      --text-color: #ffffff;
+      --text-muted: #ffffff;
+      --border-color: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      font-size: var(--font-scale);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       2. BARRA DE ACESSIBILIDADE E ATALHOS RÁPIDOS
+       ========================================================================== */
+    .top-accessibility-bar {
+      background-color: #0a2540;
+      color: #ffffff;
+      padding: 6px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+    }
+
+    .top-accessibility-bar .controls, 
+    .top-accessibility-bar .quick-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .top-accessibility-bar button {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .top-accessibility-bar button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ==========================================================================
+       3. NAVEGAÇÃO E MEGA MENU
+       ========================================================================== */
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 2px solid var(--primary-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .brand h1 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .brand p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      padding: 10px 0;
+      font-weight: 600;
+      cursor: pointer;
+      display: block;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+
+    /* Mega Menu Dropdown */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--card-bg);
+      min-width: 220px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 4px;
+      display: none;
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    .dropdown a {
+      padding: 10px 15px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    .dropdown a:hover {
+      background-color: var(--bg-color);
+      color: var(--primary-color);
+    }
+
+    .nav-item:hover .dropdown {
+      display: flex;
+    }
+
+    /* Barra de busca global */
+    .search-box-header {
+      display: flex;
+      align-items: center;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 4px 12px;
+    }
+
+    .search-box-header input {
+      border: none;
+      background: transparent;
+      outline: none;
+      padding: 4px;
+      color: var(--text-color);
+    }
+
+    /* ==========================================================================
+       4. CONTEÚDO PRINCIPAL E SEÇÕES
+       ========================================================================== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      border-bottom: 3px solid var(--primary-color);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* Banner Principal (Hero) */
+    .hero {
+      position: relative;
+      background-color: #000;
+      color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .hero-placeholder {
+      width: 100%;
+      height: 380px;
+      background: #2b303a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 2px dashed #4a5568;
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      padding: 30px;
+      text-align: left;
+    }
+
+    .hero-content h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* Painel de Atalhos da Home */
+    .quick-access-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .quick-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .quick-card .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* Componente de Espaço Reservado para Fotos com Legendas */
+    .image-placeholder {
+      background-color: var(--bg-color);
+      border: 2px dashed var(--border-color);
+      border-radius: 6px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .photo-wrapper {
+      margin-bottom: 25px;
+    }
+
+    .photo-caption-input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-style: italic;
+      background-color: var(--card-bg);
+      color: var(--text-color);
+    }
+
+    /* Estilo de Grade (Galeria/Notícias) */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Linha do Tempo Interativa */
+    .timeline {
+      position: relative;
+      margin: 20px 0;
+      padding-left: 20px;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -29px;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+    }
+
+    .timeline-year {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    /* Tabelas (Horários e Merenda) */
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background: var(--card-bg);
+    }
+
+    .custom-table th, .custom-table td {
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      text-align: left;
+    }
+
+    .custom-table th {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    /* Filtros da Galeria */
+    .filter-btn-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      border: 1px solid var(--primary-color);
+      background: none;
+      color: var(--text-color);
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    /* Formulário Profissional */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .form-group label {
+      font-weight: 600;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .btn-submit {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #0a2540;
+      color: #ffffff;
+      padding: 40px 20px 20px 20px;
+      margin-top: 50px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+      color: #a0a0a0;
+    }
+
+    /* Ocultar seções dinâmicas */
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+      }
+      .dropdown {
+        position: static;
+        box-shadow: none;
+      }
+    }
+  </style>
 </head>
 <body>
-    
+
+  <!-- ==========================================================================
+       BARRA DE ACESSIBILIDADE FIXA
+       ========================================================================== -->
+  <div class="top-accessibility-bar">
+    <div class="controls">
+      <span><strong>♿ Acessibilidade:</strong></span>
+      <button onclick="changeFontSize(1)" title="Aumentar fonte">A+</button>
+      <button onclick="changeFontSize(-1)" title="Diminuir fonte">A-</button>
+      <button onclick="toggleDarkMode()" title="Modo Escuro">🌙 Escuro</button>
+      <button onclick="toggleHighContrast()" title="Alto Contraste">⬛ Alto Contraste</button>
+    </div>
+    <div class="quick-links">
+      <a href="#" onclick="showSection('merenda')">🍱 Merenda</a> |
+      <a href="#" onclick="showSection('vida-escolar')">📅 Calendário</a>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CABEÇALHO E MENU PRINCIPAL (MEGA MENU)
+       ========================================================================== -->
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <h1>CEIAS</h1>
+        <p>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</p>
+      </div>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a class="nav-link" onclick="showSection('home')">Início</a></li>
+          <li class="nav-item">
+            <span class="nav-link">O Colégio ▾</span>
+            <div class="dropdown">
+              <a onclick="showSection('historia')">Nossa História</a>
+              <a onclick="showSection('linha-tempo')">Linha do Tempo</a>
+              <a onclick="showSection('estrutura')">Estrutura & Equipe</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link">Vida Escolar ▾</span>
+            <div class="dropdown">
+              <a onclick="showSection('horarios')">Horário das Turmas</a>
+              <a onclick="showSection('provas')">Provas e Avaliações</a>
+              <a onclick="showSection('merenda')">Cardápio da Merenda</a>
+              <a onclick="showSection('projetos')">Projetos & Ciência</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" onclick="showSection('galeria')">Galeria de Memórias</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="showSection('conquistas')">Conquistas</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="showSection('contato')">Fale Conosco</a></li>
+        </ul>
+      </nav>
+
+      <!-- BARRA DE PESQUISA GLOBAL -->
+      <div class="search-box-header">
+        <input type="text" id="globalSearchInput" placeholder="🔍 Pesquisar no site..." onkeyup="handleSearch(event)">
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       CONTEÚDO DAS PÁGINAS
+       ========================================================================== -->
+  <main class="container">
+
+    <!-- RESULTADOS DA BUSCA -->
+    <section id="search-results-section" class="page-section">
+      <h2 class="section-title">Resultados da Pesquisa</h2>
+      <p id="search-query-display"></p>
+      <div id="search-results-list" class="grid-3" style="margin-top: 20px;"></div>
+    </section>
+
+    <!-- 1. PÁGINA INICIAL (HOME) -->
+    <section id="home" class="page-section active">
+      <!-- HERO BANNER COM ESPAÇO PARA FOTO PRINCIPAL -->
+      <div class="hero">
+        <div class="hero-placeholder">
+          <span>📷 [ ESPAÇO PARA FOTO / VÍDEO PRINCIPAL DA FACHADA DO CEIAS ]</span>
+        </div>
+        <div class="hero-content">
+          <h2>"Uma história. Milhares de pessoas. Um lugar para chamar de nosso."</h2>
+          <p>Educando gerações na Colônia Marcelino, São José dos Pinhais/PR.</p>
+        </div>
+      </div>
+
+      <!-- PAINEL DE ACESSO RÁPIDO -->
+      <h3 class="section-title">Acesso Rápido</h3>
+      <div class="quick-access-grid">
+        <div class="quick-card" onclick="showSection('merenda')">
+          <span class="icon">🍱</span>
+          <strong>Merenda</strong>
+        </div>
+        <div class="quick-card" onclick="showSection('horarios')">
+          <span class="icon">📖</span>
+          <strong>Horários</strong>
+        </div>
+        <div class="quick-card" onclick="showSection('provas')">
+          <span class="icon">📝</span>
+          <strong>Provas</strong>
+        </div>
+        <div class="quick-card" onclick="showSection('galeria')">
+          <span class="icon">📸</span>
+          <strong>Memórias</strong>
+        </div>
+        <div class="quick-card" onclick="showSection('conquistas')">
+          <span class="icon">🏆</span>
+          <strong>Conquistas</strong>
+        </div>
+      </div>
+
+      <!-- DESTAQUES E NOTÍCIAS -->
+      <h3 class="section-title">Destaques do Colégio</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="photo-wrapper">
+            <div class="image-placeholder">🖼️ Espaço para Foto da Notícia 1</div>
+            <input type="text" class="photo-caption-input" placeholder="Escreva a legenda da foto aqui...">
+          </div>
+          <h4>Jogos Escolares 2026</h4>
+          <p>Confira a participação das nossas equipes nos jogos regionais deste ano.</p>
+        </div>
+        <div class="card">
+          <div class="photo-wrapper">
+            <div class="image-placeholder">🖼️ Espaço para Foto da Notícia 2</div>
+            <input type="text" class="photo-caption-input" placeholder="Escreva a legenda da foto aqui...">
+          </div>
+          <h4>Semana Cultural</h4>
+          <p>Apresentações teatrais e exposições preparadas pelos nossos alunos.</p>
+        </div>
+        <div class="card">
+          <div class="photo-wrapper">
+            <div class="image-placeholder">🖼️ Espaço para Foto da Notícia 3</div>
+            <input type="text" class="photo-caption-input" placeholder="Escreva a legenda da foto aqui...">
+          </div>
+          <h4>Feira de Ciências</h4>
+          <p>Projetos inovadores de sustentabilidade apresentados na Feira de Ciências.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. HISTÓRIA DO COLÉGIO -->
+    <section id="historia" class="page-section">
+      <h2 class="section-title">Nossa História</h2>
+      <div class="photo-wrapper">
+        <div class="image-placeholder" style="height: 250px;">🖼️ [ FOTO ANTIGA DO CEIAS ]</div>
+        <input type="text" class="photo-caption-input" placeholder="Legenda: Fundação e primeira estrutura do colégio...">
+      </div>
+      <p style="margin-bottom: 15px;">
+        <em>[ESCREVA A HISTÓRIA DO COLÉGIO AQUI]:</em> O Colégio Estadual do Campo Irmã Ambrósia Sabatovich está localizado na Colônia Marcelino e tem sido o coração da comunidade local, oferecendo Ensino Fundamental e Médio com dedicação e excelência.
+      </p>
+    </section>
+
+    <!-- 3. LINHA DO TEMPO INTERATIVA -->
+    <section id="linha-tempo" class="page-section">
+      <h2 class="section-title">Linha do Tempo das Memórias</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">1985 — Fundação</span>
+          <p>[DESCREVA O ANO DE FUNDAÇÃO AQUI]</p>
+          <div class="photo-wrapper" style="margin-top: 10px;">
+            <div class="image-placeholder">🖼️ Foto do Ano de 1985</div>
+            <input type="text" class="photo-caption-input" placeholder="Legenda da foto...">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2005 — Ampliação</span>
+          <p>[DESCREVA A CONSTRUÇÃO DO NOVO PRÉDIO OU QUADRA AQUI]</p>
+          <div class="photo-wrapper" style="margin-top: 10px;">
+            <div class="image-placeholder">🖼️ Foto da Estrutura em 2005</div>
+            <input type="text" class="photo-caption-input" placeholder="Legenda da foto...">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2026 — O CEIAS Hoje</span>
+          <p>[DESCREVA AESTRUTURA E PROJETOS ATUAIS DO COLÉGIO]</p>
+          <div class="photo-wrapper" style="margin-top: 10px;">
+            <div class="image-placeholder">🖼️ Foto do Colégio Atualmente</div>
+            <input type="text" class="photo-caption-input" placeholder="Legenda da foto...">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ESTRUTURA E EQUIPE -->
+    <section id="estrutura" class="page-section">
+      <h2 class="section-title">Estrutura & Equipe</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="image-placeholder">🖼️ Foto da Direção / Coordenação</div>
+          <input type="text" class="photo-caption-input" placeholder="Legenda...">
+          <h4>Equipe Pedagógica</h4>
+          <p>[Nomes e funções do corpo docente e direção]</p>
+        </div>
+        <div class="card">
+          <div class="image-placeholder">🖼️ Foto dos Laboratórios / Quadra</div>
+          <input type="text" class="photo-caption-input" placeholder="Legenda...">
+          <h4>Nossa Estrutura</h4>
+          <p>Biblioteca, salas equipadas, quadra poliesportiva e espaço verde.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. HORÁRIOS DAS TURMAS -->
+    <section id="horarios" class="page-section">
+      <h2 class="section-title">Horário das Aulas</h2>
+      <label><strong>Selecione a Turma:</strong></label>
+      <select style="padding: 8px; margin-bottom: 15px; border-radius: 4px;">
+        <option>9º Ano A</option>
+        <option>1º Ano Médio</option>
+        <option>2º Ano Médio</option>
+        <option>3º Ano Médio</option>
+      </select>
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Horário</th>
+            <th>Segunda</th>
+            <th>Terça</th>
+            <th>Quarta</th>
+            <th>Quinta</th>
+            <th>Sexta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>07:30 - 08:20</td>
+            <td>Matemática</td>
+            <td>Português</td>
+            <td>História</td>
+            <td>Ciências</td>
+            <td>Ed. Física</td>
+          </tr>
+          <tr>
+            <td>08:20 - 09:10</td>
+            <td>Matemática</td>
+            <td>Inglês</td>
+            <td>Geografia</td>
+            <td>Química</td>
+            <td>Arte</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 6. PROVAS E AVALIAÇÕES -->
+    <section id="provas" class="page-section">
+      <h2 class="section-title">Próximas Avaliações</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h4>📅 10 DE SETEMBRO</h4>
+          <p><strong>Matemática</strong> - 9º Ano A</p>
+          <p>Conteúdo: Geometria e Funções</p>
+        </div>
+        <div class="card">
+          <h4>📅 15 DE SETEMBRO</h4>
+          <p><strong>História</strong> - 3º Ano Médio</p>
+          <p>Conteúdo: Era Vargas e Brasil Contemporâneo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. MERENDA ESCOLAR -->
+    <section id="merenda" class="page-section">
+      <h2 class="section-title">Cardápio da Merenda Escolar</h2>
+      <p>Cardápio nutritivo preparado para os alunos do CEIAS.</p>
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Dia da Semana</th>
+            <th>Refeição Principal</th>
+            <th>Acompanhamento / Fruta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Segunda-feira</td>
+            <td>Arroz, Feijão e Frango Grelhado</td>
+            <td>Salada de Alface e Maçã</td>
+          </tr>
+          <tr>
+            <td>Terça-feira</td>
+            <td>Macarronada ao Molho Bolonhesa</td>
+            <td>Laranja</td>
+          </tr>
+          <tr>
+            <td>Quarta-feira</td>
+            <td>Sopa de Legumes com Carne</td>
+            <td>Banana</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 8. PROJETOS E CIÊNCIA -->
+    <section id="projetos" class="page-section">
+      <h2 class="section-title">Projetos & Ciência</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="photo-wrapper">
+            <div class="image-placeholder">🖼️ Foto do Projeto de Robótica</div>
+            <input type="text" class="photo-caption-input" placeholder="Escreva a legenda...">
+          </div>
+          <h4>Projeto de Robótica Sustentável</h4>
+          <p>Alunos criando protótipos com materiais reciclados.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. GALERIA DE MEMÓRIAS (COM FILTROS) -->
+    <section id="galeria" class="page-section">
+      <h2 class="section-title">Galeria de Memórias</h2>
+      
+      <!-- FILTROS POR ANO E EVENTO -->
+      <div class="filter-btn-group">
+        <button class="filter-btn active" onclick="filterGallery('todos')">Todos</button>
+        <button class="filter-btn" onclick="filterGallery('2024')">2024</button>
+        <button class="filter-btn" onclick="filterGallery('2025')">2025</button>
+        <button class="filter-btn" onclick="filterGallery('2026')">2026</button>
+        <button class="filter-btn" onclick="filterGallery('esportes')">Esportes</button>
+        <button class="filter-btn" onclick="filterGallery('cultura')">Cultura</button>
+      </div>
+
+      <div class="grid-3">
+        <div class="card gallery-item 2025 esportes">
+          <div class="photo-wrapper">
+            <div class="image-placeholder">🖼️ [ ESPAÇO PARA FOTO DO JOGO ]</div>
+            <input type="text" class="photo-caption-input" placeholder="Legenda: Final do Campeonato 2025...">
+          </div>
+          <h4>Jogos Escolares — 2025</h4>
+        </div>
+        <div class="card gallery-item 2024 cultura">
+          <div class="photo-wrapper">
+            <div class="image-placeholder">🖼️ [ ESPAÇO PARA FOTO DO TEATRO ]</div>
+            <input type="text" class="photo-caption-input" placeholder="Legenda: Apresentação Teatral 2024...">
+          </div>
+          <h4>Semana Cultural — 2024</h4>
+        </div>
+        <div class="card gallery-item 2026 esportes">
+          <div class="photo-wrapper">
+            <div class="image-placeholder">🖼️ [ ESPAÇO PARA FOTO DE 2026 ]</div>
+            <input type="text" class="photo-caption-input" placeholder="Legenda: Torneio Recente 2026...">
+          </div>
+          <h4>Campeonato de Futebol — 2026</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. HALL DA FAMA / CONQUISTAS -->
+    <section id="conquistas" class="page-section">
+      <h2 class="section-title">Hall da Fama & Conquistas</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="photo-wrapper">
+            <div class="image-placeholder">🏆 Foto do Troféu / Equipe</div>
+            <input type="text" class="photo-caption-input" placeholder="Legenda da conquista...">
+          </div>
+          <h4>🥇 1º Lugar nos Jogos Regionais</h4>
+          <p>Conquista histórica da equipe de atletismo do CEIAS.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FALE CONOSCO E FAQ -->
+    <section id="contato" class="page-section">
+      <h2 class="section-title">Fale Conosco</h2>
+      <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+        
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
+          <div class="form-group">
+            <label for="name">Seu Nome:</label>
+            <input type="text" id="name" required placeholder="Digite seu nome completo">
+          </div>
+          <div class="form-group">
+            <label for="email">Seu E-mail:</label>
+            <input type="email" id="email" required placeholder="exemplo@email.com">
+          </div>
+          <div class="form-group">
+            <label for="profile">Você é:</label>
+            <select id="profile">
+              <option>Aluno</option>
+              <option>Responsável</option>
+              <option>Professor / Funcionário</option>
+              <option>Comunidade / Visitante</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Sua Mensagem / Dúvida:</label>
+            <textarea id="message" rows="5" required placeholder="Escreva aqui sua mensagem..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Enviar Mensagem</button>
+        </form>
+
+        <!-- CENTRAL DE PERGUNTAS FREQUENTES (FAQ) -->
+        <div style="flex: 1; min-width: 280px;">
+          <h3>Perguntas Frequentes (FAQ)</h3>
+          <details style="margin: 10px 0; padding: 10px; background: var(--card-bg); border: 1px solid var(--border-color);">
+            <summary><strong>Como solicitar transferência ou histórico escolar?</strong></summary>
+            <p style="margin-top: 5px;">Entre em contato diretamente com a secretaria presencialmente ou pelo e-mail oficial do colégio.</p>
+          </details>
+          <details style="margin: 10px 0; padding: 10px; background: var(--card-bg); border: 1px solid var(--border-color);">
+            <summary><strong>Qual o horário das aulas do período matutino?</strong></summary>
+            <p style="margin-top: 5px;">As aulas iniciam pontualmente às 07:30 e vão até 12:00.</p>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       RODAPÉ INFORMATIVO E LEGAL
+       ========================================================================== -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h3>CEIAS</h3>
+        <p>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</p>
+        <p>Ensino Fundamental e Médio</p>
+      </div>
+      <div>
+        <h4>Localização & Contato</h4>
+        <p>📍 Colônia Marcelino - São José dos Pinhais/PR</p>
+        <p>📞 Telefone: (41) XXXXX-XXXX</p>
+        <p>✉️ E-mail: colegioceias@educacao.pr.gov.br</p>
+      </div>
+      <div>
+        <h4>Links Úteis</h4>
+        <p><a onclick="showSection('historia')">Sobre Nós</a></p>
+        <p><a onclick="showSection('contato')">FAQ & Suporte</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026–2028 CEIAS. Todos os direitos reservados. | Desenvolvido para a Competição Escolar | Acessibilidade e Privacidade</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT DEDICADO PARA INTERATIVIDADE E ACESSIBILIDADE
+       ========================================================================== -->
+  <script>
+    // Sistema de Navegação entre Seções
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      
+      const targetSection = document.getElementById(sectionId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Acessibilidade: Ajuste de Fonte
+    let currentScale = 1.0;
+    function changeFontSize(delta) {
+      currentScale += delta * 0.1;
+      if (currentScale < 0.8) currentScale = 0.8;
+      if (currentScale > 1.4) currentScale = 1.4;
+      document.documentElement.style.setProperty('--font-scale', `${currentScale}rem`);
+    }
+
+    // Acessibilidade: Alternar Modo Escuro
+    function toggleDarkMode() {
+      document.body.classList.remove('high-contrast');
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // Acessibilidade: Alternar Alto Contraste
+    function toggleHighContrast() {
+      document.body.classList.remove('dark-mode');
+      document.body.classList.toggle('high-contrast');
+    }
+
+    // Filtros da Galeria de Fotos
+    function filterGallery(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        if (category === 'todos' || item.classList.contains(category)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Sistema de Pesquisa Global na Barra Superior
+    function handleSearch(e) {
+      if (e.key === 'Enter') {
+        const query = e.target.value.toLowerCase().trim();
+        if (!query) return;
+
+        const displayQuery = document.getElementById('search-query-display');
+        const resultsContainer = document.getElementById('search-results-list');
+        
+        displayQuery.innerText = `Mostrando resultados para: "${query}"`;
+        resultsContainer.innerHTML = '';
+
+        // Varre todo o site buscando termos correspondentes
+        const cards = document.querySelectorAll('.card, .timeline-item');
+        let foundCount = 0;
+
+        cards.forEach(card => {
+          if (card.innerText.toLowerCase().includes(query)) {
+            const clone = card.cloneNode(true);
+            resultsContainer.appendChild(clone);
+            foundCount++;
+          }
+        });
+
+        if (foundCount === 0) {
+          resultsContainer.innerHTML = '<p>Nenhum resultado encontrado para esta pesquisa.</p>';
+        }
+
+        showSection('search-results-section');
+      }
+    }
+  </script>
 </body>
 </html>
