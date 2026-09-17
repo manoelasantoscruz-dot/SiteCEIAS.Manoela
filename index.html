@@ -9,14 +9,14 @@
        1. VARIÁVEIS E ESTILOS GERAIS
        ========================================================================== */
     :root {
-      --primary-color: #0d47a1;
-      --secondary-color: #1565c0;
+      --primary-color: #000000;
+      --secondary-color: #b2d3ff;
       --accent-color: #f57c00;
-      --bg-color: #f8f9fa;
-      --card-bg: #ffffff;
-      --text-color: #212529;
-      --text-muted: #6c757d;
-      --border-color: #e0e0e0;
+      --bg-color: #cee5ff;
+      --card-bg: #55aee2;
+      --text-color: #000000;
+      --text-muted: #000000;
+      --border-color: #d1e4ff;
       --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       --font-scale: 1rem;
     }
@@ -24,8 +24,8 @@
     body.dark-mode {
       --bg-color: #121212;
       --card-bg: #1e1e1e;
-      --text-color: #e0e0e0;
-      --text-muted: #a0a0a0;
+      --text-color: #ace1ff;
+      --text-muted: #000000;
       --border-color: #333333;
     }
 
@@ -63,9 +63,9 @@
        2. BARRA DE ACESSIBILIDADE E ATALHOS RÁPIDOS
        ========================================================================== */
     .top-accessibility-bar {
-      background-color: #0a2540;
+      background-color: #00226d;
       color: #ffffff;
-      padding: 6px 20px;
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -76,14 +76,14 @@
     .top-accessibility-bar .controls, 
     .top-accessibility-bar .quick-links {
       display: flex;
-      gap: 12px;
+      gap: 17px;
       align-items: center;
     }
 
     .top-accessibility-bar button {
       background: none;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      color: #fff;
+      border: 1px solid rgb(255, 255, 255);
+      color: #ffffff;
       padding: 2px 8px;
       border-radius: 4px;
       cursor: pointer;
@@ -103,7 +103,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 5px rgba(0, 41, 59, 0.452);
     }
 
     .header-container {
@@ -156,7 +156,7 @@
       background-color: var(--card-bg);
       min-width: 220px;
       border: 1px solid var(--border-color);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgb(12, 0, 0);
       border-radius: 4px;
       display: none;
       flex-direction: column;
@@ -218,7 +218,7 @@
     .hero {
       position: relative;
       background-color: #000;
-      color: white;
+      color: rgb(241, 244, 245);
       border-radius: 8px;
       overflow: hidden;
       margin-bottom: 30px;
@@ -228,12 +228,12 @@
     .hero-placeholder {
       width: 100%;
       height: 380px;
-      background: #2b303a;
+      background: #616a75;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border: 2px dashed #4a5568;
+      border: 2px dashed #000000;
     }
 
     .hero-content {
@@ -374,7 +374,7 @@
 
     .custom-table th {
       background-color: var(--primary-color);
-      color: #fff;
+      color: #80e6ff;
     }
 
     /* Filtros da Galeria */
@@ -396,7 +396,7 @@
 
     .filter-btn.active, .filter-btn:hover {
       background-color: var(--primary-color);
-      color: #fff;
+      color: #ffffff;
     }
 
     /* Formulário Profissional */
@@ -431,7 +431,7 @@
 
     .btn-submit {
       background-color: var(--primary-color);
-      color: white;
+      color: rgb(133, 196, 255);
       border: none;
       padding: 12px;
       border-radius: 4px;
@@ -446,7 +446,7 @@
 
     /* Rodapé */
     footer {
-      background-color: #0a2540;
+      background-color: #00254b;
       color: #ffffff;
       padding: 40px 20px 20px 20px;
       margin-top: 50px;
@@ -506,7 +506,7 @@
     <div class="controls">
       <span><strong>♿ Acessibilidade:</strong></span>
       <button onclick="changeFontSize(1)" title="Aumentar fonte">A+</button>
-      <button onclick="changeFontSize(-1)" title="Diminuir fonte">A-</button>
+      <button onclick="changeFontSize(-2)" title="Diminuir fonte">A-</button>
       <button onclick="toggleDarkMode()" title="Modo Escuro">🌙 Escuro</button>
       <button onclick="toggleHighContrast()" title="Alto Contraste">⬛ Alto Contraste</button>
     </div>
@@ -576,7 +576,8 @@
       <!-- HERO BANNER COM ESPAÇO PARA FOTO PRINCIPAL -->
       <div class="hero">
         <div class="hero-placeholder">
-          <span>📷 [ ESPAÇO PARA FOTO / VÍDEO PRINCIPAL DA FACHADA DO CEIAS ]</span>
+          <span>📷logo colegio.jpg</span>
+          <img src="logo colegio.jpg" alt="Descrição da imagem" style="float: right; margin: 10px;">
         </div>
         <div class="hero-content">
           <h2>"Uma história. Milhares de pessoas. Um lugar para chamar de nosso."</h2>
@@ -932,7 +933,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026–2028 CEIAS. Todos os direitos reservados. | Desenvolvido para a Competição Escolar | Acessibilidade e Privacidade</p>
+      <p>© 2026–2028 CEIAS. Todos os direitos reservados.| Acessibilidade e Privacidade/ Feitos pelos alunos Manoela Caroline e Erike Gabriel </p>
     </div>
   </footer>
 
