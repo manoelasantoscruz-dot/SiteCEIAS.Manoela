@@ -532,7 +532,7 @@
           <li class="nav-item">
             <span class="nav-link">O Colégio ▾</span>
             <div class="dropdown">
-              <a onclick="showSection('historia')">Nossa História</a>
+              <a onclick="showSection('historia')">História do colegio</a>
               <a onclick="showSection('linha-tempo')">Linha do Tempo</a>
               <a onclick="showSection('estrutura')">Estrutura & Equipe</a>
             </div>
@@ -596,10 +596,6 @@
           <span class="icon">📖</span>
           <strong>Horários</strong>
         </div>
-        <div class="quick-card" onclick="showSection('provas')">
-          <span class="icon">📝</span>
-          <strong>Provas</strong>
-        </div>
         <div class="quick-card" onclick="showSection('galeria')">
           <span class="icon">📸</span>
           <strong>Memórias</strong>
@@ -623,7 +619,7 @@
         </div>
         <div class="card">
           <div class="photo-wrapper">
-            <div class="image-placeholder">🖼️ Espaço para Foto da Notícia 2</div>
+            <div class="image-placeholder">história.jpg</div>
             <input type="text" class="photo-caption-input" placeholder="Escreva a legenda da foto aqui...">
           </div>
           <h4>Semana Cultural</h4>
@@ -648,7 +644,11 @@
         <input type="text" class="photo-caption-input" placeholder="Legenda: Fundação e primeira estrutura do colégio...">
       </div>
       <p style="margin-bottom: 15px;">
-        <em>[ESCREVA A HISTÓRIA DO COLÉGIO AQUI]:</em> O Colégio Estadual do Campo Irmã Ambrósia Sabatovich está localizado na Colônia Marcelino e tem sido o coração da comunidade local, oferecendo Ensino Fundamental e Médio com dedicação e excelência.
+        <em>O Colégio Estadual do Campo Irmã Ambrósia Sabatovich (CEIAS) está localizado na Colônia Marcelino, uma comunidade de forte tradição e colonização ucraniana em São José dos Pinhais, Paraná. A história da instituição está diretamente conectada ao desenvolvimento da zona rural do município e ao apoio educacional oferecido às famílias de agricultores da região ao longo das décadas.
+
+          O nome da escola homenageia a freira ucraniana Ana Sabatovich — a Irmã Ambrósia —, pertencente à Congregação das Irmãs Servas de Maria Imaculada. Em 1931, ela participou da fundação da comunidade religiosa na Colônia Marcelino, onde atuou ativamente no ensino, na catequese e no atendimento de saúde aos moradores. Sua trajetória ficou marcada pela dedicação à comunidade local e pelo ato heroico em 1943, quando faleceu ao resgatar crianças durante um incêndio.
+          
+          Como uma instituição voltada à Educação do Campo, o colégio desempenha um papel fundamental ao garantir o acesso ao Ensino Fundamental e Médio para os jovens da área rural, preservando a identidade cultural, a história local e o vínculo dos estudantes com a sua comunidade.:</em> O Colégio Estadual do Campo Irmã Ambrósia Sabatovich está localizado na Colônia Marcelino e tem sido o coração da comunidade local, oferecendo Ensino Fundamental e Médio com dedicação e excelência.
       </p>
     </section>
 
@@ -658,7 +658,7 @@
       <div class="timeline">
         <div class="timeline-item">
           <span class="timeline-year">1985 — Fundação</span>
-          <p>[DESCREVA O ANO DE FUNDAÇÃO AQUI]</p>
+          <p>As atividades educativas na Colônia Marcelino começaram na década de 1930, impulsionadas pela chegada da Irmã Ambrósia Sabatovich em 1931. O ensino funcionou de forma comunitária por anos até que, em 1979, a escola foi formalmente criada e autorizada pelo Estado do Paraná, garantindo o ensino público e oficializado na zona rural.</p>
           <div class="photo-wrapper" style="margin-top: 10px;">
             <div class="image-placeholder">🖼️ Foto do Ano de 1985</div>
             <input type="text" class="photo-caption-input" placeholder="Legenda da foto...">
@@ -666,7 +666,7 @@
         </div>
         <div class="timeline-item">
           <span class="timeline-year">2005 — Ampliação</span>
-          <p>[DESCREVA A CONSTRUÇÃO DO NOVO PRÉDIO OU QUADRA AQUI]</p>
+          <p>Ao longo das décadas de 1990 e 2000, o prédio passou por ampliações para atender ao Ensino Fundamental completo e ao Ensino Médio. Entre 2010 e 2018, a infraestrutura foi modernizada com a construção da quadra poliesportiva coberta e melhorias no refeitório, biblioteca e salas de aula via recursos do estado.</p>
           <div class="photo-wrapper" style="margin-top: 10px;">
             <div class="image-placeholder">🖼️ Foto da Estrutura em 2005</div>
             <input type="text" class="photo-caption-input" placeholder="Legenda da foto...">
@@ -674,7 +674,7 @@
         </div>
         <div class="timeline-item">
           <span class="timeline-year">2026 — O CEIAS Hoje</span>
-          <p>[DESCREVA AESTRUTURA E PROJETOS ATUAIS DO COLÉGIO]</p>
+          <p>A partir de 2020, com a consolidação das diretrizes de Educação do Campo no Paraná, a escola reforçou seus projetos pedagógicos voltados ao meio ambiente, à agricultura familiar e à preservação da memória ucraniana local, mantendo ações de feiras de conhecimento e incentivo à leitura na rotina atual.</p>
           <div class="photo-wrapper" style="margin-top: 10px;">
             <div class="image-placeholder">🖼️ Foto do Colégio Atualmente</div>
             <input type="text" class="photo-caption-input" placeholder="Legenda da foto...">
@@ -707,10 +707,20 @@
       <h2 class="section-title">Horário das Aulas</h2>
       <label><strong>Selecione a Turma:</strong></label>
       <select style="padding: 8px; margin-bottom: 15px; border-radius: 4px;">
+        <option>6º Ano A</option>
+        <option>6º Ano B</option>
+        <option>7º Ano A</option>
+        <option>7º Ano B</option>
+        <option>8º Ano A</option>
+        <option>8º Ano B</option>
         <option>9º Ano A</option>
-        <option>1º Ano Médio</option>
-        <option>2º Ano Médio</option>
-        <option>3º Ano Médio</option>
+        <option>9º Ano B</option>
+        <option>1º Ano Médio A</option>
+        <option>1º Ano Medio B</option>
+        <option>2º Ano Médio A</option>
+        <option>2º Ano Medio B</option>
+        <option>3º Ano Médio A</option>
+        <option>3º Ano Medio B</option>
       </select>
       <table class="custom-table">
         <thead>
@@ -744,22 +754,7 @@
       </table>
     </section>
 
-    <!-- 6. PROVAS E AVALIAÇÕES -->
-    <section id="provas" class="page-section">
-      <h2 class="section-title">Próximas Avaliações</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h4>📅 10 DE SETEMBRO</h4>
-          <p><strong>Matemática</strong> - 9º Ano A</p>
-          <p>Conteúdo: Geometria e Funções</p>
-        </div>
-        <div class="card">
-          <h4>📅 15 DE SETEMBRO</h4>
-          <p><strong>História</strong> - 3º Ano Médio</p>
-          <p>Conteúdo: Era Vargas e Brasil Contemporâneo</p>
-        </div>
-      </div>
-    </section>
+  
 
     <!-- 7. MERENDA ESCOLAR -->
     <section id="merenda" class="page-section">
@@ -788,6 +783,16 @@
             <td>Quarta-feira</td>
             <td>Sopa de Legumes com Carne</td>
             <td>Banana</td>
+          <tr>
+            <td>Quinta-feira</td>
+            <td>Arroz, Feijão e Frango Grelhado</td>
+            <td>Salada de Alface e Maçã</td>
+            <tr>
+              <td>Sexta-feira</td>
+              <td>Arroz, Feijão e Frango Grelhado</td>
+              <td>Salada de Alface e Maçã</td>
+            </tr>
+            </tr>
           </tr>
         </tbody>
       </table>
@@ -901,7 +906,7 @@
           </details>
           <details style="margin: 10px 0; padding: 10px; background: var(--card-bg); border: 1px solid var(--border-color);">
             <summary><strong>Qual o horário das aulas do período matutino?</strong></summary>
-            <p style="margin-top: 5px;">As aulas iniciam pontualmente às 07:30 e vão até 12:00.</p>
+            <p style="margin-top: 5px;">As aulas iniciam pontualmente às 08h00 e vão até 12h00 no periodo da manhã. 13h00 e vão até 17h00 no periodo da tarde.</p>
           </details>
         </div>
 
@@ -922,10 +927,9 @@
       </div>
       <div>
         <h4>Localização & Contato</h4>
-        <p>📍 Colônia Marcelino - São José dos Pinhais/PR</p>
-        <p>📞 Telefone: (41) XXXXX-XXXX</p>
-        <p>✉️ E-mail: colegioceias@educacao.pr.gov.br</p>
-      </div>
+<p>📍 Localização: <a href="https://maps.app.goo.gl/d45R5SER3tYfCjPq9" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a></p>
+<p>📞 Telefone: (41) XXXXX-XXXX</p>
+<p>✉️ E-mail: colegioceias@educacao.pr.gov.br</p>
       <div>
         <h4>Links Úteis</h4>
         <p><a onclick="showSection('historia')">Sobre Nós</a></p>
@@ -1002,7 +1006,8 @@
         displayQuery.innerText = `Mostrando resultados para: "${query}"`;
         resultsContainer.innerHTML = '';
 
-        // Varre todo o site buscando termos correspondentes
+        // Varre todo o site buscando termos correspond<tr>
+          entes
         const cards = document.querySelectorAll('.card, .timeline-item');
         let foundCount = 0;
 
